@@ -27,10 +27,10 @@ export class ProductsPage{
     }
 
     //gotoShoppingcart.click()
-    //[class="css-1ktw94t"] este es el hermano mayor
-    //#goShoppingCart   este es el hermano menor
+    //[class="css-1ktw94t"] este es el padre
+    //#goShoppingCart   este es el hijo
     clickGoShoppingCart() {
-        cy.get('hacer el sibbling acá').click()  //Está bien  hacer un preceding sibbling acá???
+        cy.get("//div[@class='css-1ktw94t']//child::button[#goShoppingCart]").click()  //Está bien este child?
  
      }
 
