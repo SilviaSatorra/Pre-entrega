@@ -7,7 +7,7 @@ export class ProductsPage{
     constructor() {
         this.addButtonZapatillaAzul = "#add-to-cart-1001";  //Zapatillas Azules
         this.addButtonRemeraNegra = '[id="add-to-cart-1002"]'  //Remera Negra
-        
+
         this.closeButton = "#closeModal"  //Esto creo que está ok. Aun no lo puedo probar
         this.gotShoppingCartButton = '#goShoppingCart' //esto creo que está ok
     }
@@ -30,7 +30,7 @@ export class ProductsPage{
     //[class="css-1ktw94t"] este es el hermano mayor
     //#goShoppingCart   este es el hermano menor
     clickGoShoppingCart() {
-        cy.get().click()  //hacer un sibbling
+        cy.get('hacer el sibbling acá').click()  //Está bien  hacer un preceding sibbling acá???
  
      }
 
