@@ -10,6 +10,7 @@ export class ProductsPage {
 
         this.closeButton = "#closeModal"  //Esto creo que está ok. Aun no lo puedo probar
         this.gotShoppingCartButton = '#goShoppingCart' //esto creo que está ok
+        this.showtotalPriceButton ='[class="chakra-button css-1i1ynt3"]'
     }
 
     //Metodos:
@@ -32,6 +33,11 @@ export class ProductsPage {
         cy.xpath("//div[@class='css-1ktw94t']//button[@id='goShoppingCart']").click()
 
     }
-
+    //showtotalPriceButton.click()
+    clickShowtotalPriceButton (){
+         return cy.get(this.showtotalPriceButton).click()
+    }
+       
+    
 
 }
