@@ -1,7 +1,7 @@
 //corregir esta pagina
 
 
-export class ProductsPage{
+export class ProductsPage {
     //constructor de los elementos (productos y botones agregarProducto, close y go to shopping cart )
 
     constructor() {
@@ -12,27 +12,26 @@ export class ProductsPage{
         this.gotShoppingCartButton = '#goShoppingCart' //esto creo que está ok
     }
 
-     //Metodos:
+    //Metodos:
 
     //agregarProducto
-    agregarProducto(botonProducto) {  //habrá que pasarle por parametros un this.addButtonZapatillaAzul?
-        cy.get(botonProducto).click()  //REEMPLAZAR
+    obtenerProducto(Producto) {  //habrá que pasarle por parametros un this.addButtonZapatillaAzul?
+        return cy.get(Producto)  //REEMPLAZAR
     }
 
 
     //close.click()
     clickClose() {
-       cy.get(this.closeButton).click()
+        cy.get(this.closeButton).click()
 
     }
 
     //gotoShoppingcart.click()
-    //[class="css-1ktw94t"] este es el padre
-    //#goShoppingCart   este es el hijo
+   // Este metodo está ok. Lo dejo comentado hasta que funcionen los 2 metodos anteriores
     clickGoShoppingCart() {
-        cy.get("//div[@class='css-1ktw94t']//child::button[#goShoppingCart]").click()  //Está bien este child?
- 
-     }
+        cy.xpath("//div[@class='css-1ktw94t']//button[@id='goShoppingCart']").click()
 
-    
+    }
+
+
 }
