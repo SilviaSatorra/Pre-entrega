@@ -93,8 +93,9 @@ describe("Validación de compra de productos", () => {
         //Verifico cantidd - 2do producto
         //Verifico precio total - 2do producto
 
-
-        //Verifico el importe total de la compra:
+        //Obtengo el botón show total price y le doy click
+        onlineShopFunction.productsPage.clickShowtotalPriceButton()
+        //Verifico el importe total de la compra
 
 
 
