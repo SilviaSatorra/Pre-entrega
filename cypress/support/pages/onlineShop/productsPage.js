@@ -38,6 +38,15 @@ export class ProductsPage {
          return cy.get(this.showtotalPriceButton).click()
     }
        
+    //obtener precio unitario de un producto
+      obtenerPrecioUnitario(){
+
+      }
+    //obtener cantidad de un producto
+
+      obtenerCantidadProducto(){
+        
+      }    
     
 
 }

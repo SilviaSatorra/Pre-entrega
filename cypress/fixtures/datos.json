@@ -2,6 +2,7 @@
      "productos":{
         "producto1": {
             "nombre": "Zapatillas Azules",
+            "productId": "1001",
             "precio": 30.33,
             "cantidad": 2
             
@@ -9,8 +10,9 @@
         },
 
         "producto2":{
-            "nombre": "Campera Negra",
-            "precio":  20.14,
+            "nombre": "Remera Negra",
+            "productId": "1002",
+            "precio":  7.12,
             "cantidad": 1
           }
 

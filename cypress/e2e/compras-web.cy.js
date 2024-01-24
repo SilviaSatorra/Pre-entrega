@@ -9,6 +9,7 @@ import { OnlineShopFunction } from "../support/functions/onlineShopFunction";
 
 describe("Validación de compra de productos", () => {
     let data;
+    let importeCompra;
     
     //const registerPage = new RegisterPage();   //quedó integrado en accessFunction
     //const loginPage = new LoginPage();         //quedó integrado en accessFunction
@@ -16,6 +17,7 @@ describe("Validación de compra de productos", () => {
     const homePage = new HomePage();
     const headerPage = new HeaderPage();
     const onlineShopFunction = new OnlineShopFunction();
+    
 
     before("before - Compra de productos", () => {
         cy.fixture("datos").then(datosFixture => {
@@ -46,7 +48,7 @@ describe("Validación de compra de productos", () => {
         //Selecciono un primer producto 2 veces:
    
         //selecciono el primer producto
-        cy.get('[id="add-to-cart-1001"]').click()
+        cy.get('[id="add-to-cart-1001"]').click()  //reemplazar por contains + siblings
         //click en close
         onlineShopFunction.productsPage.clickClose()
         //selecciono por 2da vez el producto
@@ -59,7 +61,13 @@ describe("Validación de compra de productos", () => {
         //Selecciono un segundo producto 1 sola vez:
                 
         //selecciono por única vez el 2do producto
-        cy.get('[id="add-to-cart-1007"]').click()
+       cy.get('[id="add-to-cart-1002"]').click()   //reemplazar por contains + sibling (ejemplo en clase 8 al final de la misma)
+        // cy.contains('p', data.productos.producto2.nombre)
+        // .siblings('div')
+        // .children('button')
+        // .find(`[id^="add-to-cart-${data.productos.producto2.productId}"]`)
+        // .click();
+        
         //click en close
         onlineShopFunction.productsPage.clickClose()
         //click en goToShoppingCart
@@ -83,7 +91,7 @@ describe("Validación de compra de productos", () => {
 
         //Segundo producto:
         //Verifico nombre - 2do producto
-        onlineShopFunction.productsPage.obtenerProducto('[name="Campera Negra"]')
+        onlineShopFunction.productsPage.obtenerProducto('[name="Remera Negra"]')
         .should('be.visible')
         .contains(data.productos.producto2.nombre)
 
@@ -93,11 +101,13 @@ describe("Validación de compra de productos", () => {
         //Verifico cantidd - 2do producto
         //Verifico precio total - 2do producto
 
-        //Obtengo el botón show total price y le doy click
+        //Obtengo el botón show total price y le doy click para mostrar el precio total en pantalla
         onlineShopFunction.productsPage.clickShowtotalPriceButton()
-        //Verifico el importe total de la compra
 
-
+        //Verifico el importe total de la compra:
+        //calculo el importe total de la compra
+       // importeCompra = onlineShopFunction.productsPage.obtenerPrecioUnitario * onlineShopFunction.productsPage.obtenerCantidadProducto
+        //comparo el importe calculado con el importe en pantalla
 
     })
 
