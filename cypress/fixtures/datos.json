@@ -3,8 +3,9 @@
         "producto1": {
             "nombre": "Zapatillas Azules",
             "productId": "1001",
-            "precio": 30.33,
-            "cantidad": 2
+            "precioUnitario":30.33,
+            "cantidad": 2,
+            "addButton": "#add-to-cart-1001"
             
 
         },
@@ -12,10 +13,12 @@
         "producto2":{
             "nombre": "Remera Negra",
             "productId": "1002",
-            "precio":  7.12,
-            "cantidad": 1
+            "precioUnitario":  7.12,
+            "cantidad": 1,
+            "addButton": "[id='add-to-cart-1002']"
           }
 
     }
 }
   
+
