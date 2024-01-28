@@ -5,8 +5,8 @@ export class ProductsPage {
     //constructor de los elementos (productos y botones agregarProducto, close y go to shopping cart )
 
     constructor() {
-        this.addButtonZapatillaAzul = "#add-to-cart-1001";  //Zapatillas Azules
-        this.addButtonRemeraNegra = '[id="add-to-cart-1002"]'  //Remera Negra
+        // this.addButtonZapatillaAzul = "#add-to-cart-1001";  //Zapatillas Azules
+        // this.addButtonRemeraNegra = '[id="add-to-cart-1002"]'  //Remera Negra
 
         this.closeButton = "#closeModal"  //Esto creo que está ok. Aun no lo puedo probar
         this.gotShoppingCartButton = '#goShoppingCart' //esto creo que está ok
@@ -16,14 +16,15 @@ export class ProductsPage {
     //Metodos:
 
     //agregarProducto
-    obtenerProducto(Producto) {  //habrá que pasarle por parametros un this.addButtonZapatillaAzul?
+  agregarProducto(Producto) {  //habrá que pasarle por parametros un this.addButtonZapatillaAzul?
         return cy.get(Producto)  //REEMPLAZAR
     }
 
 
+
     //close.click()
-    clickClose() {
-        cy.get(this.closeButton).click()
+    getCloseButton() {
+        return cy.get(this.closeButton)
 
     }
 
@@ -33,6 +34,12 @@ export class ProductsPage {
         cy.xpath("//div[@class='css-1ktw94t']//button[@id='goShoppingCart']").click()
 
     }
+
+    //obtener producto:
+    obtenerProducto(Producto) {  //habrá que pasarle por parametros un this.addButtonZapatillaAzul?
+        return cy.get(Producto)  //REEMPLAZAR
+    }
+
     //showtotalPriceButton.click()
     clickShowtotalPriceButton (){
          return cy.get(this.showtotalPriceButton).click()
