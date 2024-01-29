@@ -10,8 +10,8 @@ import { OnlineShopFunction } from "../support/functions/onlineShopFunction";
 
 describe("Validación de compra de productos", () => {
     let data;
-    let cantProd1 = "2"
-    let cantProd2 = "1"
+    let cantProd1 = "2" //Aunque no lo usé lo dejo para mostrar la opción que a mi me hubiera gustado usar
+    let cantProd2 = "1" //Aunque no lo usé lo dejo para mostrar la opción que a mi me hubiera gustado usar
     let totalPriceProducto1;
     let totalPriceProducto2;
     let importeTotalCompra;
@@ -49,14 +49,13 @@ describe("Validación de compra de productos", () => {
 
         //selecciono el primer producto
         onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.nombre).should('exist').click()
-        cy.log('funcionaaaaaaaa!!!!S')
 
         //presiono el botón "Close"
         onlineShopFunction.productsPage.getCloseButton().should('be.visible').click()
 
         //selecciono por 2da vez el producto
         onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.nombre).should('exist').click()
-        cy.log("funciono!!!!!")
+
         //presiono el botón "Close"
         onlineShopFunction.productsPage.getCloseButton().should('be.visible').click()
 
@@ -78,63 +77,55 @@ describe("Validación de compra de productos", () => {
 
         //Validaciones - Primer producto:
         //Verifico nombre - 1er producto
-        onlineShopFunction.shoppingCartPage.obtenerProducto('[name="Zapatillas Azules"]')
+        onlineShopFunction.shoppingCartPage.verificarNombreProducto('[name="Zapatillas Azules"]')
             .should('be.visible')
             .contains(data.productos.producto1.nombre)
-        cy.log('nombre zapas azules verificado')
+
 
         //Verifico cantidad - 1er producto
-        onlineShopFunction.shoppingCartPage.obtenerCantidadProducto(data.productos.producto1.nombre, 'p[name="2"]')
+        onlineShopFunction.shoppingCartPage.verificarCantidadProducto(data.productos.producto1.nombre, 'p[name="2"]')
             .should('have.text', data.productos.producto1.cantidad)  //lo puse así porque al preguntar en clase entendí que se quiere así
         //.should('have.text', cantProd1) //hubiera preferido ponerlo así y no poner la cantidad harcodeada en el fixture
 
-        cy.log('cantidad de prod 1 agregado verificado')
+
 
         //Verifico precio unitario - 1er producto
-        onlineShopFunction.shoppingCartPage.obtenerPrecioUnitario(data.productos.producto1.nombre, 'p[id="unitPrice"]')
+        onlineShopFunction.shoppingCartPage.verificarPrecioUnitario(data.productos.producto1.nombre, 'p[id="unitPrice"]')
             .should('have.text', "$ " + data.productos.producto1.precioUnitario)
-
-        cy.log('precio unitario de prod 1 verificado ' + data.productos.producto1.precioUnitario)
 
 
         //Verifico importe total - 1er producto
         //Primero calculo el importe total para el producto:
-        totalPriceProducto1 = onlineShopFunction.shoppingCartPage.calcularPrecioTotalProducto(data.productos.producto1.precioUnitario, data.productos.producto1.cantidad) //entiendo que se quiere así
+        totalPriceProducto1 = onlineShopFunction.shoppingCartPage.calcularImporteTotalProducto(data.productos.producto1.precioUnitario, data.productos.producto1.cantidad) //entiendo que se quiere así
         //totalPriceProducto1 = onlineShopFunction.shoppingCartPage.calcularPrecioTotalProducto(data.productos.producto1.precioUnitario,cantProd1) //preferiría así
 
         //Ahora comparo el importe calculado con el importe en pantalla:
         onlineShopFunction.shoppingCartPage.verificarImporteTotalProducto(data.productos.producto1.nombre, 'p[id="totalPrice"]')
             .should('have.text', "$ " + totalPriceProducto1)
 
-        cy.log('precio total de prod 1 verificado: ' + totalPriceProducto1)
-
 
         //Validaciones - Segundo producto:
         //Verifico nombre - 2do producto
-        onlineShopFunction.shoppingCartPage.obtenerProducto('[name="Remera Negra"]')
+        onlineShopFunction.shoppingCartPage.verificarNombreProducto('[name="Remera Negra"]')
             .should('be.visible')
             .contains(data.productos.producto2.nombre)
 
-        cy.log('nombre remera negra verificado')
 
         //Verifico cantidad - 2do producto
-        onlineShopFunction.shoppingCartPage.obtenerCantidadProducto(data.productos.producto2.nombre, 'p[name="1"]')
+        onlineShopFunction.shoppingCartPage.verificarCantidadProducto(data.productos.producto2.nombre, 'p[name="1"]')
             .should('have.text', data.productos.producto2.cantidad)  //lo puse así porque al preguntar en clase entendí que se quiere así
         //.should('have.text', cantProd2) //hubiera preferido ponerlo así y no poner la cantidad harcodeada en el fixture
 
-        cy.log('cantidad de prod 2 agregado verificado')
 
         //Verifico precio unitario - 2do producto
-        onlineShopFunction.shoppingCartPage.obtenerPrecioUnitario(data.productos.producto2.nombre, 'p[id="unitPrice"]')
+        onlineShopFunction.shoppingCartPage.verificarPrecioUnitario(data.productos.producto2.nombre, 'p[id="unitPrice"]')
             .should('have.text', "$ " + data.productos.producto2.precioUnitario)
 
-
-        cy.log('precio unitario de prod 2 verificado')
 
 
         //Verifico importe total - 2do producto
         //Primero calculo el importe total para el producto:
-        totalPriceProducto2 = onlineShopFunction.shoppingCartPage.calcularPrecioTotalProducto(data.productos.producto2.precioUnitario, data.productos.producto2.cantidad) //entiendo que se quiere así
+        totalPriceProducto2 = onlineShopFunction.shoppingCartPage.calcularImporteTotalProducto(data.productos.producto2.precioUnitario, data.productos.producto2.cantidad) //entiendo que se quiere así
         //totalPriceProducto2 = onlineShopFunction.shoppingCartPage.calcularPrecioTotalProducto(data.productos.producto2.precioUnitario,cantProd2) //preferiría así
 
 
@@ -159,8 +150,6 @@ describe("Validación de compra de productos", () => {
         //Ahora comparo el importe calculado con el importe en pantalla:
         onlineShopFunction.shoppingCartPage.verificarImporteTotalCompra().should('have.text', importeTotalCompra)
 
-        cy.log('importe total compra: ' + importeTotalCompra)
-
     })
-
+    
 })

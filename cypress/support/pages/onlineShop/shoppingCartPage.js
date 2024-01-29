@@ -15,23 +15,23 @@ export class ShoppingCartPage {
     //Métodos:
 
     //Para verifcarNombreProducto
-    obtenerProducto(producto) {
-        return cy.get(producto, { timeout: 10000 })
+    verificarNombreProducto(Producto) {
+        return cy.get(Producto, { timeout: 10000 })
     }
     //Para verificarPrecioUnitario
-    obtenerPrecioUnitario(producto, Precio) {
+    verificarPrecioUnitario(producto, Precio) {
         return cy.contains(producto).siblings(Precio)
 
     }
     //Para verificar Cantidad de Producto
-    obtenerCantidadProducto(producto, Cantidad) {
+    verificarCantidadProducto(producto, Cantidad) {
         return cy.contains(producto).siblings(Cantidad)
 
 
     }
 
     //Para calcular precio total de un producto:
-    calcularPrecioTotalProducto(precio, cantidad) {
+    calcularImporteTotalProducto(precio, cantidad) {
         let precioProducto = precio
         let cantProducto = cantidad
         return precioProducto * cantProducto
