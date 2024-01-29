@@ -2,8 +2,8 @@ export class ProductsPage {
 
     //constructor:
     constructor() {
-       // this.addbuttonZapatillasAzules = "#add-to-cart-1001"
-       // this.addbuttonRemeraNegra = "[id='add-to-cart-1002']"
+       // this.addbuttonZapatillasAzules = "#add-to-cart-1001"  //esto no me sirve acá. Quitarlo luego
+       // this.addbuttonRemeraNegra = "[id='add-to-cart-1002']"  //esto no me sirve acá. Quitarlo luego
         this.closeButton = "#closeModal"
         this.goToShoppingCartButton = "//div[@class='css-1ktw94t']//button[@id='goShoppingCart']"
 
@@ -14,7 +14,9 @@ export class ProductsPage {
     //agregarProducto
     agregarProducto(botonAgregarProducto) {
         return cy.get(botonAgregarProducto)
-    }
+     }
+
+ 
 
 
     //close.click()

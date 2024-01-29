@@ -50,7 +50,9 @@ describe("Validación de compra de productos", () => {
         //selecciono el primer producto
        // onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.addButton).click() //modif metodo p/pasarle selector deaddbutoon por acá
 
-        onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.addButton).click()
+       // onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.addButton).click()
+       onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.addButton).should('exist').click()
+       cy.log("funciono!!!!!")
         
         //presiono el botón "Close"
         onlineShopFunction.productsPage.getCloseButton().should('be.visible').click()
