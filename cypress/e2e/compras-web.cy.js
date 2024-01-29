@@ -48,18 +48,15 @@ describe("Validación de compra de productos", () => {
         //Selecciono un primer producto 2 veces:
 
         //selecciono el primer producto
-       // onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.addButton).click() //modif metodo p/pasarle selector deaddbutoon por acá
+        onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.nombre).should('exist').click()
+        cy.log('funcionaaaaaaaa!!!!S')
 
-       // onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.addButton).click()
-       onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.addButton).should('exist').click()
-       cy.log("funciono!!!!!")
-        
         //presiono el botón "Close"
         onlineShopFunction.productsPage.getCloseButton().should('be.visible').click()
 
         //selecciono por 2da vez el producto
-        //onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.addButton).click() //modif metodo p/pasarle selector deaddbutoon por acá
-        onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.addButton).click()
+        onlineShopFunction.productsPage.agregarProducto(data.productos.producto1.nombre).should('exist').click()
+        cy.log("funciono!!!!!")
         //presiono el botón "Close"
         onlineShopFunction.productsPage.getCloseButton().should('be.visible').click()
 
@@ -68,7 +65,8 @@ describe("Validación de compra de productos", () => {
         //Selecciono un segundo producto 1 sola vez:
 
         //selecciono por única vez el 2do producto
-        onlineShopFunction.productsPage.agregarProducto(data.productos.producto2.addButton).click()  //modif metodo p/pasarle selector deaddbutoon por acá
+        onlineShopFunction.productsPage.agregarProducto(data.productos.producto2.nombre).should('exist').click()
+
 
         //presiono el botón "Close"
         onlineShopFunction.productsPage.getCloseButton().should('be.visible').click()
