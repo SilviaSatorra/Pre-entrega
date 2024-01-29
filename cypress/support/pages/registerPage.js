@@ -1,5 +1,5 @@
-const constantes = require('../constants') 
-export class RegisterPage{
+const constantes = require('../constants')
+export class RegisterPage {
     constructor() {
 
         this.registerToggle = '#registertoggle';
@@ -7,6 +7,6 @@ export class RegisterPage{
 
 
     dobleClickRegisterToggle() {
-        cy.get(this.registerToggle,{timeout: constantes.TIMEOUT}).dblclick()
+        cy.get(this.registerToggle, { timeout: constantes.TIMEOUT }).dblclick()
     }
 }
