@@ -1,3 +1,5 @@
+const constantes = require('../constants')
+
 export class LoginPage {
 
 
@@ -8,7 +10,7 @@ export class LoginPage {
     }
 
     ingresarUsuario(usuario) {
-        cy.get(this.userInput).type(usuario)
+        cy.get(this.userInput, { timeout: constantes.TIMEOUT * 2 }).type(usuario)
     }
 
     ingresarPassword(pass) {
@@ -16,6 +18,6 @@ export class LoginPage {
     }
 
     clickLogin() {
-        cy.get(this.loginButton).click()
+        cy.get(this.loginButton, { timeout: constantes.TIMEOUT * 2 }).click()
     }
 }
